@@ -1,0 +1,53 @@
+﻿@model IEnumerable<API_practica.Models.employees>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.employee_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.employee_salary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.employee_age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.profile_image)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.employee_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.employee_salary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.employee_age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.profile_image)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
